@@ -1,0 +1,122 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+    {% load staticfiles %}
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>猎豹导航</title>
+<link rel="stylesheet" href="../static/thd/css/bootstrap.min.css">
+<link rel="stylesheet" href="../static/thd/css/flexslider.css">
+<link rel="stylesheet" href="../static/thd/css/jquery.fancybox.css">
+<link rel="stylesheet" href="../static/thd/css/main.css">
+<link rel="stylesheet" href="../static/thd/css/responsive.css">
+<link rel="stylesheet" href="../static/thd/css/animate.min.css">
+<link rel="stylesheet" href="../static/thd/css/font-icon.css">
+<link rel="stylesheet" href="../static/thd/css/zySearch.css" type="text/css" />
+</head>
+
+<body bgcolor="#E6E6FA">
+<!-- header section -->
+<section class="banner" role="banner">
+<!--header navigation -->
+  <header id="header">
+    <div class="header-content clearfix"> <a class="logo" href="../index/"><img src="../static/thd/images/logo.png" width="220px" height="80px" alt=""></a>
+      <nav class="navigation" role="navigation">
+        <ul class="primary-nav">
+          <li><a href="../index/">猎豹导航</a></li>
+          <li><a href="../txl/">通讯录</a></li>s
+          <li><a href="https://www.je2se.com">我的博客</a></li>
+            <li><a href="../logout/">退出登录</a></li>
+        </ul>
+      </nav>
+      </div>
+      </header>
+      <!--header navigation -->
+  </section>
+  <!-- header section -->
+
+  <!-- text banner section -->
+<section id="banner" class="banner no-padding">
+  <div class="container-fluid">
+    <div class="row no-gutter">
+              <blockquote>
+	<div class="input-block">
+		<span class="zySearch" id="zySearch"></span>
+	</div>
+	
+	<script type="text/javascript" src="../static/thd/js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="../static/thd/js/zySearch.js"></script>
+	
+	<script type="text/javascript">
+	
+		$("#zySearch").zySearch({
+			"width":"800",
+			"height":"40",
+			"parentClass":"pageTitle"
+		});
+	</script>
+              </blockquote>
+     </div>
+  </div>
+</section>
+<!-- Text banner section --> 
+<!-- portfolio section -->
+<section id="works" class="works section no-padding">
+  <div class="container-fluid">
+    <div class="row no-gutter">
+        {% for row in rows %}
+      <div class="col-lg-3 col-md-4 col-sm-4 work modalBody" style=""> <a href="{{row.url}}" class="work-box">
+
+          <script type="text/javascript">var n=Math.floor(Math.random()*6+1);document.write("<img src='../static/thd/images/work-"+n+".jpg' alt=' '>")</script>
+        <div class="overlay">
+          <div class="overlay-caption">
+            <h5>{{row.urlname}}</h5>
+			<p>{{row.url}}</p>
+          </div>
+        </div>
+          <h4 align="center">{{row.urlname}}</h4>
+        <!-- overlay -->
+        </a> </div>
+        {% endfor %}
+    <div class="col-lg-3 col-md-4 col-sm-4 work modalBody" style=""> <a href="{{row.url}}" class="work-box">
+          <img src='../static/thd/images/work-6.jpg' alt=' '>
+        <div class="overlay">
+          <div class="overlay-caption">
+            <h5>待添加</h5>
+			<p>#</p>
+          </div>
+        </div>
+          <h4 align="center">待添加</h4>
+        <!-- overlay -->
+        </a> </div>
+    </div>
+  </div>
+</section>
+  <!-- footer -->
+<footer class="section footer">
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="col-md-12">
+        <p>
+        </p>
+        <p>Copyright © 2020 <a href="https://www.je2se.com" target="_blank">我的博客</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- footer --> 
+<!-- JS FILES --> 
+<script src="../static/thd/js/jquery.min.js"></script>
+<script src="../static/thd/js/bootstrap.min.js"></script>
+<script src="../static/thd/js/retina.min.js"></script>
+<script src="../static/thd/js/modernizr.js"></script>
+<script src="../static/thd/js/main.js"></script>
+</body>
+</html>
+

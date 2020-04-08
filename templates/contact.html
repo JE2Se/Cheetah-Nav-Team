@@ -1,0 +1,159 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>猎豹导航</title>
+<link rel="stylesheet" href="../static/thd/css/bootstrap.min.css">
+<link rel="stylesheet" href="../static/thd/css/flexslider.css">
+<link rel="stylesheet" href="../static/thd/css/jquery.fancybox.css">
+<link rel="stylesheet" href="../static/thd/css/main.css">
+<link rel="stylesheet" href="../static/thd/css/responsive.css">
+<link rel="stylesheet" href="../static/thd/css/animate.min.css">
+<link rel="stylesheet" href="../static/thd/css/font-icon.css">
+<link rel="stylesheet" href="../static/thd/css/font-awesome.min.css">
+<link rel="stylesheet" href="../static/thd/css/zySearch.css" type="text/css" />
+<link rel="stylesheet" href="../static/thd/css/contact.css" />
+</head>
+
+<body>
+<!-- header section -->
+<section class="banner" role="banner">
+<!--header navigation -->
+  <header id="header">
+    <div class="header-content clearfix"> <a class="logo" href="../index/"><img src="../static/thd/images/logo.png" width="220px" height="80px" alt=""></a>
+      <nav class="navigation" role="navigation">
+        <ul class="primary-nav">
+          <li><a href="../index/">猎豹导航</a></li>
+          <li><a href="../txl/">通讯录</a></li>
+          <li><a href="https://www.je2se.com">我的博客</a></li>
+            <li><a href="../logout/">退出登录</a></li>
+        </ul>
+      </nav>
+    </div>
+      </header>
+      <!--header navigation -->
+  </section>
+  <!-- header section -->
+
+  <!-- text banner section -->
+<section id="banner" class="banner no-padding">
+  <div class="container-fluid">
+    <div class="row no-gutter">
+        <ul class="slides">
+          <li>
+            <div class="col-md-12">
+              <blockquote>
+<!-- Text banner section --> 
+
+<div id="myVue">
+	        <el-row>
+	            <el-col :span="17" :offset="4">
+	                <el-input v-model="search" placeholder="搜索联系人"></el-input>
+                    <div class="tableRef" id="tableRef" ref="tableRef">
+                        <el-table
+                            :data="tables"
+                            style="width: 100%">
+                            <el-table-column
+                                label="姓名"
+                                width="180">
+                                <template slot-scope="scope">
+                                    <span class="col-cont" v-html="showDate(scope.row.name)" ></span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column
+                                label="花名"
+                                width="180">
+                                <template slot-scope="scope">
+                                    <span class="col-cont" v-html="showDate(scope.row.huaming)" ></span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column
+                                label="部门"
+                                width="180">
+                                <template slot-scope="scope">
+                                    <span class="col-cont" v-html="showDate(scope.row.bumen)" ></span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column
+                                label="手机号码">
+                                <template slot-scope="scope">
+                                    <span class="col-cont" v-html="showDate(scope.row.phone)" ></span>
+                                </template>
+                            </el-table-column>
+                            <el-table-column
+                                label="电子邮箱">
+                                <template slot-scope="scope">
+                                  <span class="col-cont" v-html="showDate(scope.row.email)" ></span>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                    </div>
+	            </el-col>
+	        </el-row>
+	    </div>
+        <script type="text/javascript" src="../static/thd/js/vue.js" ></script>
+		<script type="text/javascript" src="../static/thd/js/contact.js" ></script>
+		<script type="text/javascript">
+            new Vue({
+                el: '#myVue',
+                data: {
+                    search: '',
+                    tableData: [
+                        {% for row in rows %}
+                        {
+                        name: '{{row.name}}',
+                        huaming: '{{row.fname}}',
+						bumen:'{{row.part}}',
+                        phone: '{{row.tel}}',
+						email:'<a href="mailto:{{row.email}}">{{row.email}}</a>'
+                    },
+                    {% endfor %}
+                    ]
+                },
+                computed: {
+                    tables: function () {
+                        const search = this.search
+                        if (search) {
+                            return this.tableData.filter(dataNews => {
+                                return Object.keys(dataNews).some(key => {
+                                    return String(dataNews[key]).toLowerCase().indexOf(search) > -1
+                                })
+                            })
+                        }
+                        return this.tableData
+                    }
+                },
+                methods: {
+                    showDate (val) {
+                        if (val.indexOf(this.search) !== -1 && this.search !== '') {
+                            return val.replace(this.search, this.search)
+                        } else {
+                            return val
+                        }
+                    }
+                }
+            })
+        </script>
+
+<!-- portfolio section --> 
+  <!-- footer -->
+<!-- footer --> 
+<!-- JS FILES --> 
+<script src="../static/thd/js/jquery.min.js"></script>
+<script src="../static/thd/js/bootstrap.min.js"></script>
+<script src="../static/thd/js/jquery.flexslider-min.js"></script>
+<script src="../static/thd/js/jquery.fancybox.pack.js"></script>
+<script src="../static/thd/js/jquery.waypoints.min.js"></script>
+<script src="../static/thd/js/retina.min.js"></script>
+<script src="../static/thd/js/modernizr.js"></script>
+<script src="../static/thd/js/main.js"></script>
+</body>
+</html>
+
