@@ -7,6 +7,9 @@ import time
 from datetime import timedelta
 import datetime
 import random
+import requests
+from bs4 import BeautifulSoup
+import sys
 
 # Create your views here.
 def txl(request):
@@ -28,6 +31,22 @@ def welcome(request):
     else:
         return render(request, './welcome.html')
 def index(request):
+    try:
+        headers = {
+            "Accept": "text/html,application/xhtml+xml,application/xml;",
+            "Accept-Encoding": "gzip",
+            "Accept-Language": "zh-CN,zh;q=0.8",
+            "User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36"
+        }
+        urlfist = "https://www.uedbox.com/post/54776/"
+        r = requests.options(urlfist, headers=headers)
+        soup = BeautifulSoup(r.content, 'lxml')
+        filedata = open("../static/thd/js/search.je2se", 'w')
+        for td in soup.find_all('td'):
+            for a in td.find_all('a'):
+                filedata.write(a.attrs['href'] + "\n")
+    except:
+        pass
     if request.method == 'GET':
         ticket = request.COOKIES.get('ticket')
         if ticket:
@@ -169,7 +188,7 @@ def useradd(request):
                     # crypto the password
                     password = make_password(password)
                     User.objects.create(Username=name, Password=password, Mark=mark)
-                    return HttpResponse("<script>alert('创建成功');window.history.go(-3);</script>")
+                    return HttpResponse("<script type=\"text/javascript\" src=\"/static/lib/layui/layui.js\" charset=\"utf-8\"></script><script type=\"text/javascript\" src=\"/static/js/xadmin.js\"></script><script>xadmin.close();alert('创建成功');</script>")
                 else:
                     return HttpResponseRedirect('../useradd/')
             else:
@@ -198,7 +217,7 @@ def urladd(request):
                 if urlname and urlinfo:
                     # crypto the password
                     Data.objects.create(urlname=urlname, url=urlinfo)
-                    return HttpResponse("<script>alert('创建成功');window.history.go(-3);</script>")
+                    return HttpResponse("<script type=\"text/javascript\" src=\"/static/lib/layui/layui.js\" charset=\"utf-8\"></script><script type=\"text/javascript\" src=\"/static/js/xadmin.js\"></script><script>xadmin.close();alert('创建成功');</script>")
                 else:
                     return HttpResponseRedirect('../urladd')
             else:
@@ -228,7 +247,7 @@ def emailadd(request):
                 if part and tel and email and fname and name:
                     # crypto the password
                     email.objects.create(name=name, tel=tel, fname=fname, part=part, email=yemail)
-                    return HttpResponse("<script>alert('创建成功');window.history.go(-3);</script>")
+                    return HttpResponse("<script type=\"text/javascript\" src=\"/static/lib/layui/layui.js\" charset=\"utf-8\"></script><script type=\"text/javascript\" src=\"/static/js/xadmin.js\"></script><script>xadmin.close();alert('创建成功');</script>")
                 else:
                     return HttpResponseRedirect('../emailadd')
             else:
@@ -307,8 +326,8 @@ def adminchangepwd(request):
             if newpass==repass:
                 newpass = make_password(newpass)
                 User.objects.filter(Username = username).update(Password=newpass)
-                return HttpResponse( "<script>alert('修改成功,请手动关闭当前页');window.history.go(-3); </script>")
+                return HttpResponse( "<script type=\"text/javascript\" src=\"/static/lib/layui/layui.js\" charset=\"utf-8\"></script><script type=\"text/javascript\" src=\"/static/js/xadmin.js\"></script><script>xadmin.close();alert('修改成功,请手动关闭当前页');</script>")
             else:
-                return HttpResponse("<script>alert('修改成功,请手动关闭当前页');window.history.go(-3); </script>")
+                return HttpResponse("<script type=\"text/javascript\" src=\"/static/lib/layui/layui.js\" charset=\"utf-8\"></script><script type=\"text/javascript\" src=\"/static/js/xadmin.js\"></script><script>xadmin.close();alert('修改成功,请手动关闭当前页');</script>")
         else:
             return HttpResponseRedirect('/login/')
