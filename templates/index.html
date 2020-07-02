@@ -6,7 +6,6 @@
 <html class="no-js" lang="">
 <!--<![endif]-->
 <head>
-    {% load staticfiles %}
 <meta charset="utf-8">
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,8 +50,9 @@
 	</div>
 	
 	<script type="text/javascript" src="../static/thd/js/jquery-1.7.2.js"></script>
+	<script type="text/javascript" src="../static/thd/js/je2se.js"></script>
 	<script type="text/javascript" src="../static/thd/js/zySearch.js"></script>
-	
+
 	<script type="text/javascript">
 	
 		$("#zySearch").zySearch({
@@ -72,20 +72,20 @@
     <div class="row no-gutter">
         {% for row in rows %}
       <div class="col-lg-3 col-md-4 col-sm-4 work modalBody" style=""> <a href="{{row.url}}" class="work-box">
-
-          <script type="text/javascript">var n=Math.floor(Math.random()*6+1);document.write("<img src='../static/thd/images/work-"+n+".jpg' alt=' '>")</script>
-        <div class="overlay">
-          <div class="overlay-caption">
-            <h5>{{row.urlname}}</h5>
-			<p>{{row.url}}</p>
-          </div>
-        </div>
+        <img src='../static/thd/images/work-{{ forloop.counter}}.jpg' alt=' '>
+            <div class="overlay">
+              <div class="overlay-caption">
+                <h5>{{row.urlname}}</h5>
+                <p>{{row.url}}</p>
+              </div>
+            </div>
           <h4 align="center">{{row.urlname}}</h4>
         <!-- overlay -->
-        </a> </div>
+        </a>
+      </div>
         {% endfor %}
     <div class="col-lg-3 col-md-4 col-sm-4 work modalBody" style=""> <a href="{{row.url}}" class="work-box">
-          <img src='../static/thd/images/work-6.jpg' alt=' '>
+          <img src='../static/thd/images/work-12.jpg' alt=' '>
         <div class="overlay">
           <div class="overlay-caption">
             <h5>待添加</h5>
