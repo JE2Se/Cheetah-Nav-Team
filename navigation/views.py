@@ -24,12 +24,6 @@ def txl(request):
         else:
             return HttpResponseRedirect('/login/')
 
-
-def welcome(request):
-    if request.method == 'GET':
-        return render(request, './welcome.html')
-    else:
-        return render(request, './welcome.html')
 def index(request):
     try:
         headers = {
