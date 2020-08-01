@@ -1,4 +1,4 @@
-# Cheetah-Nav-Team
+# Cheetah-Nav-Team Ver.2.0
 
 说明地址：https://www.je2se.com/archives/639    好评Star
 
@@ -20,7 +20,7 @@ python3 manage.py runserver
 
 ## 更新说明
 
-前端换了一套页面
+2020年08月01日   前端换了一套页面  修改了登录页面  完善了里面的bug
 
 
 ## 截图
