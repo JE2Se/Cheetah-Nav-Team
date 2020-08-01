@@ -2,7 +2,7 @@
 <html class="x-admin-sm">
     <head>
         <meta charset="UTF-8">
-        <title>门户导航-管理界面</title>
+        <title>猎豹导航-管理</title>
         <meta name="renderer" content="webkit|ie-comp|ie-stand">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -11,22 +11,7 @@
         <link rel="stylesheet" href="../static/css/theme3037.min.css">
         <script src="../static/lib/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="../static/js/xadmin.js"></script>
-        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
-        <!--[if lt IE 9]>
-          <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-          <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
     </head>
-    <style type="text/css">
-		#keyword{
-		background-color:#BEBEBE;
-		text-align: center;
-		color: #000000;
-		border-radius:7px;
-		border:1px solid #BEBEBE;
-		outline: none;
-		height: 18px;}
-    </style>
     <body class="index">
         <!-- 顶部开始 -->
         <div class="container">
@@ -65,19 +50,18 @@
                     </li>
                     <li>
                         <br>
-                        <a href="javascript:;" onclick="xadmin.add_tab('用户管理','../userlist/')">
-                            <i class="iconfont left-nav-li" lay-tips="用户管理" >&#xe6b8;</i>
-                            <cite>用户管理</cite>
-                            <i class="iconfont nav_right">&#xe697;</i></a>
-                    </li>
-                    <li>
-                        <br>
                         <a href="javascript:;" onclick="xadmin.add_tab('通讯录','../emaillist/')">
                             <i class="iconfont left-nav-li" lay-tips="通讯录管理" >&#xe696;</i>
                             <cite>通讯录管理</cite>
                             <i class="iconfont nav_right">&#xe697;</i></a>
                     </li>
-                    
+                    <li>
+                        <br>
+                        <a href="javascript:;" onclick="xadmin.add_tab('用户管理','../userlist/')">
+                            <i class="iconfont left-nav-li" lay-tips="用户管理" >&#xe6b8;</i>
+                            <cite>用户管理</cite>
+                            <i class="iconfont nav_right">&#xe697;</i></a>
+                    </li>
                 </ul>
             </div>
         </div>

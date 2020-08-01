@@ -11,11 +11,6 @@
         <link rel="stylesheet" href="../static/css/xadmin.css">
         <script type="text/javascript" src="../static/lib/layui/layui.js" charset="utf-8"></script>
         <script type="text/javascript" src="../static/js/xadmin.js"></script>
-        <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
-        <!--[if lt IE 9]>
-            <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
-            <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
     </head>
     <body>
         <div class="layui-fluid">
@@ -28,16 +23,18 @@
                         <div class="layui-input-inline">
                             <input type="text"  name="urlname" required=""  autocomplete="off" class="layui-input"></div>
                         <div class="layui-form-mid layui-word-aux">
-                            <span class="x-red">*</span>链接的名称信息</div></div>
+                            <span class="x-red">*</span>链接名称信息</div></div>
                     <div class="layui-form-item">
                         <label for="L_email" class="layui-form-label">
                             <span class="x-red">*</span>链接地址</label>
                         <div class="layui-input-inline">
                             <input type="text"  name="url" required=""  autocomplete="off" class="layui-input"></div>
                         <div class="layui-form-mid layui-word-aux">
-                            <span class="x-red">*</span>链接的地址信息</div></div>
+                            <span class="x-red">*</span>链接地址信息</div></div>
                     <div class="layui-form-item">
-                        <input type="submit" value="增加" class="layui-btn"></div>
+                        <label for="L_repass" class="layui-form-label"></label>
+                        <input class="layui-btn" type="submit" value="增加">
+                    </div>
                 </form>
             </div>
         </div>
